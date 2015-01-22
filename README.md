@@ -1,7 +1,7 @@
 # vertex-reporter
 ![alt tag](http://i.imgur.com/2mKSimB.png)
-Reporting tool that relies on protractor , selenium webdriver / jasmine / jasmine reporters. Basically a test suit XML JS/XML/HTML visualizer.
 
+Reporting tool that relies on protractor , selenium webdriver / jasmine / jasmine reporters. Basically a test suit XML JS/XML/HTML visualizer.
 
 This javascript tool basically takes a Jasmine reports XML file and displays it directly on the website that the developer is developing and wants to E2E test. It asynchrony checks for new test results from the testing server and the developer can see it while he codes.
 

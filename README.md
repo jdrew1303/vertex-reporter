@@ -1,4 +1,7 @@
 # vertex-reporter
+
+![alt tag](http://i.imgur.com/2mKSimB.png)
+
 Reporting tool that relies on protractor , selenium webdriver / jasmine / jasmine reporters. Basically a test suit XML JS/XML/HTML visualizer.
 
 

@@ -8,7 +8,9 @@ It asynchrony checks for new test results from the testing server.
 
 #How to use it
 1. Step add to the website:
+```
 <script src="vertex-reporter.js"> 
+```
 
 2. Inside configure the URL where the jasmine-reporters output XML fiel is generated (usually on a http server)
 

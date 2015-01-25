@@ -1,5 +1,5 @@
 // CONFIG
-var URL_TO_JASMINE_REPORTERS_XML_OUTPUT = "http://beta.ability.es:81/test/TEST-ability.xml";
+var URL_TO_JASMINE_REPORTERS_XML_OUTPUT = "http://CORS-url/TEST-Jasmine-reporters-output.xml";
 
 var xhrObj = new XMLHttpRequest;
 

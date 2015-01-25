@@ -47,11 +47,45 @@ npm install jasmine-reporters@~1.0.0
 npm install jasmine-reporters
 ```
 
+And inside your protractor.conf:
+```
+onPrepare: function() {
+    // The require statement must be down here, since jasmine-reporters@1.0
+    // needs jasmine to be in the global and protractor does not guarantee
+    // this until inside the onPrepare function.
+    require('jasmine-reporters');
+    jasmine.getEnv().addReporter(
+        new jasmine.JUnitXmlReporter('/pathtoToYurWWWFolder/var/www/tests/output.xml', true, true)
+    );
+}
+```
+OPTIONAL (you can configure protractor.conf to export the XML  test results directly to the production server and directly access it) or for CORS:
+4. Setup the XML output folder to be in /var/www so that the website can access it (for exampel install apache or run python -m SimpleHTTPServer 8080 in the folder).
 
-4. Setup the XML output folder to be in /var/www so that the website can access it (for exampel install apache or run python -m SimpleHTTPServer 8080 in the folder)
+For example install python and:
+```
+cd /pathtoToYurWWWFolder/var/www/tests/
+python -m SimpleHTTPServer 8080
+```
+When you do this than you have to disable CORS protection if your website is on another domain or port!!!
 
+The BEST WAY:
+Simply create a file simple-cors-http-server.py (or whatever) and put the following inside:
+```
+#! /usr/bin/env python2
+from SimpleHTTPServer import SimpleHTTPRequestHandler
+import BaseHTTPServer
 
-5. Add Vertex-reporter to your website
+class CORSRequestHandler (SimpleHTTPRequestHandler):
+    def end_headers (self):
+        self.send_header('Access-Control-Allow-Origin', '*')
+        SimpleHTTPRequestHandler.end_headers(self)
+
+if __name__ == '__main__':
+    BaseHTTPServer.test(CORSRequestHandler, BaseHTTPServer.HTTPServer)
+```
+
+and run it ! thats it it should bypass the cross reference protection
 
 6. enjoy live e2e test reports :)
 

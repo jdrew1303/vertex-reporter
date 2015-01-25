@@ -1,0 +1,47 @@
+.regression-panel {
+	position:relative;
+	top: -7px;
+	right:300px;
+	width: 340px;
+	display: none;
+}
+
+
+.regression-result{
+	float:left;
+	width:100%;
+	overflow:hidden;
+	height:25px;
+	text-overflow: ellipsis;
+	white-space: pre;
+}
+
+.regression-count {
+	font-size:10px;
+	background-color:darkred;
+	width:20px;
+	height:20px;
+	border-radius:50%;
+	text-align:center;
+	padding-top:3px;
+	position:relative;
+	top:-25px;
+	color:white;
+	left:-25px;
+	display:none;
+}
+
+.regression-element{
+	position:fixed;
+	top:55px;
+	right:50px;
+	z-index:1000;
+	width:0px;
+	height:0px;
+}
+
+.regression-icon {
+	color:lightgray;
+	font-size:23px;
+	cursor:pointer;
+}

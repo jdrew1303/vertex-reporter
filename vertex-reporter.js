@@ -62,10 +62,13 @@ function resultsXMLtoJSON(response) {
  
 	for (i=0; i < response[0].children.length; i++) {
 		var testcase = response[0].children[i];
-		if (testcase && testcase.children && testcase.children[0] )
-			testResults.push({ name: testcase.attributes.name.value, success: 0, time:testcase.attributes.time.value, error: testcase.children[0].attributes.message.value });
-		else 
-			testResults.push({ name: testcase.attributes.name.value, success: 1, time:testcase.attributes.time.value });
+		var isSuccess= testcase && testcase.children && testcase.children[0];
+		var topush = { name: testcase.attributes.name.value, success: isSuccess, time:testcase.attributes.time.value });
+
+		if (isSuccess) 
+			topush.error = testcase.children[0].attributes.message.value;
+
+		testResults.push(topush);
 	}
 		
 	return testResults;
